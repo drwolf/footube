@@ -1,0 +1,22 @@
+general:
+  directory: /www/footube.example.com/rails/current
+  hostname: footube.example.com
+devise:
+  secret_key: your_secret_key
+  mailer_sender: system@footube.example.com
+capistrano:
+  repo_url: git@github.com:yourfork/footube.git
+  user: deploy
+  use_sudo: false
+  deploy_to: /www/footube.example.com
+  roles:
+    production:
+      app:
+        - app01.example.com
+        - app03.example.com
+        - app02.example.com
+      web:
+        - web01.example.com
+        - web02.example.com
+      db:
+        - db01.example.com
