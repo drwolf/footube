@@ -20,12 +20,14 @@
       </div>
       <div class="navbar-collapse collapse">
         <% if user_signed_in? %>
-          <div class="navbar-right">
-            <p class="navbar-text">
+          <div class="navbar-form navbar-right">
+            <div class="form-group text-muted">
               <%= current_user.email %>
-              &nbsp;
-              <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-xs btn-danger' %>
-            </p>
+              &nbsp;&nbsp;
+            </div>
+            <div class="form-group">
+              <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-danger' %>
+            </div>
           </div>
         <% else %>
           <%= form_for :user, url: session_path(:user), html: { class: 'navbar-form navbar-right' } do |f| %>
