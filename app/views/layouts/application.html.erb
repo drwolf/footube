@@ -16,19 +16,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Footube</a>
+        <a class="navbar-brand" href="/">Footube</a>
       </div>
       <div class="navbar-collapse collapse">
         <% if user_signed_in? %>
           <div class="navbar-form navbar-right">
             <div class="form-group">
-              <%= link_to '', class: 'btn btn-success' do %>
+              <%= link_to current_user.email, user_videos_path(current_user), class: 'btn btn-link' %>
+            </div>
+            <div class="form-group">
+              <%= link_to new_user_video_path(current_user), class: 'btn btn-success' do %>
                 <i class="glyphicon glyphicon-upload"></i>
                 Upload Video
               <% end %>
-            </div>
-            <div id="signed_in_user" class="form-group text-muted">
-              <%= current_user.email %>
             </div>
             <div class="form-group">
               <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-danger' %>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <% @videos.each do |video| %>
+      <div class="col-md-4">
+        <h2><%= video.title %></h2>
+        <a href="#" class="thumbnail">
+          <img src="http://placekitten.com/360/200" alt="Meow">
+        </a>
+        <div class="row">
+          <div class="col-md-6">
+            <p>By <a href="#"><%= video.user.id %></a></p>
+          </div>
+          <div class="col-md-6 text-right">
+            <p>6. Feb 2014 20:30 Uhr</p>
+          </div>
+        </div>
+        <p>
+          <%= video.description %>
+        </p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> 
+      </div>
+    <% end %>
+  </div>
+</div> <!-- /container -->
