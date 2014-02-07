@@ -44,6 +44,8 @@ gem 'debugger', group: [:development, :test]
 
 gem 'slim', '~> 2.0.2'
 gem 'bootstrap-sass', '~> 3.1.0'
+gem 'kaminari', '~> 0.15.1'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'devise', '~> 3.2.2'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'carrierwave'

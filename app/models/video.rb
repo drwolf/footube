@@ -12,4 +12,6 @@ class Video
 
   mount_uploader :file, VideoUploader
 
+  paginates_per 27
+
 end

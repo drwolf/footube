@@ -3,9 +3,9 @@ class VideosController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @videos = @user.videos.all
+      @videos = @user.videos.page(params[:page] || 1)
     else
-      @videos = Video.all
+      @videos = Video.page(params[:page] || 1)
     end
   end
 

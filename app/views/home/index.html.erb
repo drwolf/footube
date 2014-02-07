@@ -13,6 +13,16 @@
 </div>
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <%= paginate @videos %>
+    </div>
+  </div>
+  <div class="row">
     <%= render @videos %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= paginate @videos %>
+    </div>
   </div>
 </div> <!-- /container -->
