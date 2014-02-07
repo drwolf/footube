@@ -1,0 +1,20 @@
+<div class="col-md-4">
+  <h4><%= video.title %></h4>
+  <%= link_to video, class: 'thumbnail' do %>
+    <img src="http://placekitten.com/360/200" alt="Meow">
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <p>By <%= link_to video.user.displayname, video.user %></p>
+    </div>
+    <div class="col-md-6 text-right">
+      <p><%= l video.created_at, format: :short %></p>
+    </div>
+  </div>
+  <p>
+    <%= video.description %>
+  </p>
+  <p>
+    <%= link_to raw('Video details &raquo;'), video, class: 'btn btn-default' %>
+  </p> 
+</div>

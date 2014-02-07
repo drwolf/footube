@@ -5,31 +5,14 @@
       <p>
         We are happy to be allowed to welcome you to our video portal.
       </p>
-      <p><a class="btn btn-primary btn-lg" role="button">Browse Videos</a></p>
+      <p>
+        <%= link_to 'Browse Videos', videos_path, class: 'btn btn-primary btn-lg' %>
+      </p>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <% 20.times do |video| %>
-      <div class="col-md-4">
-        <h2>Cool Cat Video</h2>
-        <a href="#" class="thumbnail">
-          <img src="http://placekitten.com/360/200" alt="Meow">
-        </a>
-        <div class="row">
-          <div class="col-md-6">
-            <p>By <a href="#">CatLover42</a></p>
-          </div>
-          <div class="col-md-6 text-right">
-            <p>6. Feb 2014 20:30 Uhr</p>
-          </div>
-        </div>
-        <p>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> 
-      </div>
-    <% end %>
+    <%= render @videos %>
   </div>
 </div> <!-- /container -->
