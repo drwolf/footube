@@ -1,4 +1,9 @@
 <div class="container">
+  <% if params[:user_id] %>
+    <h2>Videos by <%= @user.displayname %></h2>
+  <% else %>
+    <h2>Videos</h2>
+  <% end %>
   <div class="row">
     <%= render @videos %>
   </div>
