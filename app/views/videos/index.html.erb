@@ -8,10 +8,10 @@
         </a>
         <div class="row">
           <div class="col-md-6">
-            <p>By <a href="#"><%= video.user.id %></a></p>
+            <p>By <a href="#"><%= video.user.displayname %></a></p>
           </div>
           <div class="col-md-6 text-right">
-            <p>6. Feb 2014 20:30 Uhr</p>
+            <p><%= l video.created_at, format: :short %></p>
           </div>
         </div>
         <p>

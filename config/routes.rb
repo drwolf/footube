@@ -9,7 +9,9 @@ Footube::Application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :videos
+    resources :videos, only: [:index]
   end
+
+  resources :videos
 
 end

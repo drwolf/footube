@@ -46,6 +46,8 @@ gem 'slim', '~> 2.0.2'
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'devise', '~> 3.2.2'
 gem 'mongoid', github: 'mongoid/mongoid'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
