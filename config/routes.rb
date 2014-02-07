@@ -1,7 +1,5 @@
 Footube::Application.routes.draw do
 
-  resources :foos
-
   root :to => "home#index"
 
   get "home/index"
@@ -13,5 +11,6 @@ Footube::Application.routes.draw do
   end
 
   resources :videos
+  resources :users, only: [:show]
 
 end
