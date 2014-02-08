@@ -10,7 +10,9 @@ Footube::Application.routes.draw do
     resources :videos, only: [:index]
   end
 
-  resources :videos
+  resources :videos do
+    get 'page/:page', action: :index, on: :collection
+  end
   resources :users, only: [:show]
 
 end
