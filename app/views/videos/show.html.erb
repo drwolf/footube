@@ -1,2 +1,23 @@
-<h1>Videos#show</h1>
-<p>Find me in app/views/videos/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= @video.title %></h2>
+      <p>
+        <img src="http://placekitten.com/640/380" alt="My video">
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p>By <%= link_to @video.user.displayname, @video.user %></p>
+    </div>
+    <div class="col-md-4 text-right">
+      <p><%= l @video.created_at, format: :short %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <p><%= @video.description %></p>
+    </div>
+  </div>
+</div>

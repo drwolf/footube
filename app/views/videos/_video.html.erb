@@ -5,14 +5,14 @@
   <% end %>
   <div class="row">
     <div class="col-md-6">
-      <p>By <%= link_to video.user.displayname, video.user %></p>
+      <p>By <%= link_to video.user.displayname, user_videos_path(video.user) %></p>
     </div>
     <div class="col-md-6 text-right">
       <p><%= l video.created_at, format: :short %></p>
     </div>
   </div>
   <p>
-    <%= video.description %>
+    <%= truncate video.description, length: 100, omission: ' [...]' %>
   </p>
   <p>
     <%= link_to raw('Video details &raquo;'), video, class: 'btn btn-default' %>
