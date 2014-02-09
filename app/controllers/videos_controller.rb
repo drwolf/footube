@@ -20,6 +20,8 @@ class VideosController < ApplicationController
     video.user = current_user
     video.file = File.open(params[:video][:file].tempfile)
     video.save!
+    VideoConverter.perform_async(video.id.to_s, '320x195')
+    VideoConverter.perform_async(video.id.to_s, '640x480')
     redirect_to root_path, notice: 'ok'
   end
 

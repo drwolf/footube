@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <h4><%= video.title %></h4>
   <%= link_to video, class: 'thumbnail' do %>
-    <img src="http://placekitten.com/360/200" alt="Meow">
+    <%= image_tag video.screenshot_url('320x195') %>
   <% end %>
   <div class="row">
     <div class="col-md-6">

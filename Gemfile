@@ -50,8 +50,12 @@ gem 'devise', '~> 3.2.2'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'streamio-ffmpeg', '~> 1.0.0'
+gem 'sidekiq', '~> 2.17.4'
 
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'cucumber-rails', '~> 1.4.0'
 end
+
+gem 'sinatra', require: false

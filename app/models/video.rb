@@ -14,4 +14,12 @@ class Video
 
   paginates_per 27
 
+  def screenshot_path(resolution)
+    Rails.root.join 'public', 'videos', id.to_s, resolution, 'screenshot.png'
+  end
+
+  def screenshot_url(resolution)
+    "/videos/#{id.to_s}/#{resolution}/screenshot.png"
+  end
+
 end
