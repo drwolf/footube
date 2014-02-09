@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <h2><%= @video.title %></h2>
       <p>
-        <%= image_tag @video.screenshot_url('640x480') %>
+        <%= render partial: 'player' %>
       </p>
     </div>
   </div>

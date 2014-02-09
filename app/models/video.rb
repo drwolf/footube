@@ -35,7 +35,7 @@ class Video
   end
 
   def movie_url(resolution)
-    "/videos/#{id.to_s}/#{resolution}/screenshot.mp4"
+    "/videos/#{id.to_s}/#{resolution}/movie.mp4"
   end
 
 end
