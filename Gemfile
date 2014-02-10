@@ -55,6 +55,7 @@ gem 'sidekiq', '~> 2.17.4'
 
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
+  gem 'database_cleaner', '~> 1.2.0'
   gem 'cucumber-rails', '~> 1.4.0'
 end
 

@@ -16,6 +16,12 @@ class Video
 
   default_scope -> { where(processed: true) }
 
+  # this is so ridiculous
+  # (https://github.com/mongoid/mongoid/issues/2218)
+  after_initialize do |doc|
+    doc.processed = false
+  end
+
   def screenshot_path(resolution)
     Rails.root.join 'public', 'videos', id.to_s, resolution, 'screenshot.png'
   end
