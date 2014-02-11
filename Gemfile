@@ -60,3 +60,13 @@ group :test do
 end
 
 gem 'sinatra', require: false
+
+group :development do
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rvm', '~> 0.1.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+end
+
+gem 'execjs'
+gem 'therubyracer'
