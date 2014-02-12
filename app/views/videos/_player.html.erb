@@ -50,8 +50,8 @@
     $("#jquery_jplayer_1").jPlayer({
       ready: function () {
         $(this).jPlayer("setMedia", {
-          m4v: "<%= @video.movie_url('640x480') %>",
-          poster: "<%= @video.screenshot_url('640x480') %>"
+          m4v: "<%= @version.movie_url %>",
+          poster: "<%= @version.screenshot_url %>"
         });
       },
       swfPath: "/assets",

@@ -6,9 +6,11 @@ class VideoConverter
     Video.unscoped do
       video = Video.find(video_id)
       FileUtils.mkdir_p video.screenshot_path(resolution).dirname
+      FileUtils.mkdir_p video.movie_path(resolution).dirname
       movie = FFMPEG::Movie.new(video.file.path)
       movie.screenshot(video.screenshot_path(resolution), seek_time: 5, resolution: resolution)
       movie.transcode(video.movie_path(resolution), resolution: resolution)
+      video.versions.create resolution: resolution
       video.processed = true
       video.save
     end

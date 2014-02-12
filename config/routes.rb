@@ -14,6 +14,7 @@ Footube::Application.routes.draw do
 
   resources :videos do
     get 'page/:page', action: :index, on: :collection
+    get 'version/:version_id', action: :show, as: :version
   end
   resources :users, only: [:show]
 

@@ -9,12 +9,15 @@ class Video
   field :processed, type: Boolean
 
   belongs_to :user
+  embeds_many :versions, class_name: 'VideoVersion'
 
   mount_uploader :file, VideoUploader
 
   paginates_per 27
 
   default_scope -> { where(processed: true) }
+
+  RESOLUTIONS = %w{320x200 640x480}
 
   # this is so ridiculous
   # (https://github.com/mongoid/mongoid/issues/2218)

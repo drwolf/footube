@@ -20,8 +20,9 @@ class VideosController < ApplicationController
     video.user = current_user
     video.file = File.open(params[:video][:file].tempfile)
     video.save!
-    VideoConverter.perform_async(video.id.to_s, '320x200')
-    VideoConverter.perform_async(video.id.to_s, '640x480')
+    Video::RESOLUTIONS.each do |resolution|
+      VideoConverter.perform_async(video.id.to_s, resolution)
+    end
     redirect_to root_path, notice: 'ok'
   end
 
@@ -32,7 +33,8 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = Video.find(params[:id])
+    @video = Video.find(params[:video_id] || params[:id])
+    @version = params[:version_id] ? @video.versions.find(params[:version_id]) : @video.versions.first
   end
 
   def delete

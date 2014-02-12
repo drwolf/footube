@@ -20,4 +20,13 @@
       <p><%= auto_link(simple_format(@video.description), html: { target: '_blank' }) %></p>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-7">
+      Versions
+      <% @video.versions.each do |version| %>
+        &nbsp;|&nbsp;
+        <%= link_to version.resolution, video_version_path(@video, version), class: 'resolution' + (version.id == @version.id ? ' current' : '') %>
+      <% end %>
+    </div>
+  </div>
 </div>
