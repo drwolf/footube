@@ -1,21 +1,25 @@
 # unicorn_rails -c /var/home/meyer/apps/footube/rails/current/config/unicorn.rb -E production -D
- 
+
+# load app config
+require 'yaml'
+APP_CONFIG = YAML.load(File.read(File.expand_path('../app_config.yml', __FILE__)))
+
 rails_env = ENV['RAILS_ENV'] || 'production'
- 
+
 # 16 workers and 1 master
 worker_processes (rails_env == 'production' ? 4 : 1)
- 
+
 # Load rails+github.git into the master before forking workers
 # for super-fast worker spawn times
 preload_app true
- 
+
 # Restart any workers that haven't responded in 30 seconds
 timeout 30
- 
+
 # Listen on a Unix data socket
-# 
-listen '/var/home/meyer/apps/footube/rails/current/tmp/sockets/unicorn.sock', :backlog => 2048
- 
+#
+listen APP_CONFIG['general']['directory'], :backlog => 2048
+
 before_fork do |server, worker|
   ##
   # When sent a USR2, Unicorn will suffix its pidfile with .oldbin and
@@ -27,7 +31,7 @@ before_fork do |server, worker|
   # we send it a QUIT.
   #
   # Using this method we get 0 downtime deploys.
- 
+
   old_pid = Rails.root + '/tmp/pids/unicorn.pid.oldbin'
   if File.exists?(old_pid) && server.pid != old_pid
     begin
@@ -37,14 +41,14 @@ before_fork do |server, worker|
     end
   end
 end
- 
- 
+
+
 after_fork do |server, worker|
 
   ##
   # Unicorn master is started as root, which is fine, but let's
   # drop the workers to git:git
- 
+
   begin
     uid, gid = Process.euid, Process.egid
     user, group = 'meyer', 'meyer'
