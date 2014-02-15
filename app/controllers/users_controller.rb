@@ -6,13 +6,25 @@ class UsersController < ApplicationController
   end
 
   def videos
-    @videos = @user.videos.page(params[:page] || 1)
+    if current_user?
+      @videos = @user.videos.unscoped.page(params[:page] || 1)
+    else
+      @videos = @user.videos.page(params[:page] || 1)
+    end
   end
 
   private
 
+  def current_user?
+    params[:id].nil?
+  end
+
   def find_user
-    @user = User.find(params[:id] || current_user.id)
+    if current_user?
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
   end
 
 end

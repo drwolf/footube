@@ -1,8 +1,30 @@
 <div class="container">
   <% if params[:user_id] %>
     <h2>Videos by &raquo;<%= @user.displayname %>&laquo;</h2>
+    <%= render @videos %>
   <% else %>
     <h2>Your Videos</h2>
+    <% @videos.each do |video| %>
+      <div class="row">
+        <%= render video %>
+        <div class="col-md-4">
+          <p>Versions:</p>
+          <table class="table">
+            <tr>
+              <th>Resolution</th>
+              <th>Created at</th>
+              <th>Progress</th>
+            </tr>
+            <% video.versions.unscoped.each do |version| %>
+            <tr>
+              <td><%= version.resolution %></td>
+              <td><%= l version.created_at, format: :short %></td>
+              <td><%= version.progress %> %</td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-  <%= render @videos %>
 </div>
