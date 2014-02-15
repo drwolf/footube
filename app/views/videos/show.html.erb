@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     <div class="col-md-7">
-      <p><%= @video.description %></p>
+      <p><%= auto_link(simple_format(@video.description), html: { target: '_blank' }) %></p>
     </div>
   </div>
 </div>
