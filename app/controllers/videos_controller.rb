@@ -3,12 +3,7 @@ class VideosController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @videos = @user.videos.page(params[:page] || 1)
-    else
-      @videos = Video.page(params[:page] || 1)
-    end
+    @videos = Video.page(params[:page] || 1)
   end
 
   def new

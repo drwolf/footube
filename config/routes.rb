@@ -9,7 +9,7 @@ Footube::Application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :videos, only: [:index]
+    get :videos
   end
 
   resources :videos do
@@ -17,6 +17,10 @@ Footube::Application.routes.draw do
     get 'version/:version_id', action: :show, as: :version
   end
   resources :users, only: [:show]
+
+  resource :user do
+    get :videos
+  end
 
   mount Sidekiq::Web, at: "/sidekiq"
 

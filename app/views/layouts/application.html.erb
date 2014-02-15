@@ -22,7 +22,7 @@
         <% if user_signed_in? %>
           <div class="navbar-form navbar-right">
             <div class="form-group">
-              <%= link_to current_user.email, user_videos_path(current_user), class: 'btn btn-link' %>
+              <%= link_to current_user.email, videos_user_path, class: 'btn btn-link' %>
             </div>
             <div class="form-group">
               <%= link_to new_video_path, class: 'btn btn-success' do %>

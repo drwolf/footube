@@ -1,0 +1,8 @@
+<div class="container">
+  <% if params[:user_id] %>
+    <h2>Videos by &raquo;<%= @user.displayname %>&laquo;</h2>
+  <% else %>
+    <h2>Your Videos</h2>
+  <% end %>
+  <%= render @videos %>
+</div>

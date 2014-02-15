@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <p>By <%= link_to @video.user.displayname, @video.user %></p>
+      <p>By <%= link_to @video.user.displayname, user_videos_path(@video.user) %></p>
     </div>
     <div class="col-md-4 text-right">
       <p><%= l @video.created_at, format: :short %></p>
