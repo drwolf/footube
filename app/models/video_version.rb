@@ -4,8 +4,8 @@ class VideoVersion
   include Mongoid::Timestamps
 
   field :resolution, type: String
-  field :processed, type: Boolean, default: 0.0
-  field :progress, type: Float
+  field :processed, type: Boolean
+  field :progress, type: Integer, default: 0
 
   embedded_in :video
 
