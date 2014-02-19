@@ -4,3 +4,5 @@ rvm:
 services: mongodb
 script:
     - bundle exec rspec
+before_script:
+    - cp config/app_config.yml.travis config/app_config.yml
