@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '~> 4.0.3'
 
 
 # Use SCSS for stylesheets
@@ -23,7 +23,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -47,7 +47,7 @@ gem 'bootstrap-sass', '~> 3.1.0'
 gem 'kaminari', '~> 0.15.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'devise', '~> 3.2.2'
-gem 'mongoid', github: 'mongoid/mongoid'
+gem 'mongoid', '~> 4.0.0.beta1'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'streamio-ffmpeg', '~> 1.0.0'
