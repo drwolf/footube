@@ -11,7 +11,7 @@ class VideoConverter
       movie = FFMPEG::Movie.new(video.file.path)
       movie.screenshot(video.screenshot_path(resolution), seek_time: 5, resolution: resolution)
       movie.transcode(video.movie_path(resolution), resolution: resolution) do |progress|
-        progress = progress.round
+        progress = (progress * 100).round
         if progress % 5 == 0 && version.progress != progress
           version.progress = progress
           version.save

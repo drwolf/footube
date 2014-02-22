@@ -25,12 +25,12 @@ describe VideoConverter do
       FFMPEG::Movie.stub(:new).and_return(ffmpeg_mock)
       ffmpeg_mock.should_receive(:screenshot)
       ffmpeg_mock.should_receive(:transcode)
-        .and_yield(  0.12345678) # 1
-        .and_yield(  5.12345678) # 2
-        .and_yield(  5.12345679) # 2
-        .and_yield(  5.12345680) # 2
-        .and_yield( 20.12345678) # 3
-        .and_yield(100.00000000) # 4
+        .and_yield(0.0012345678) # 1
+        .and_yield(0.0512345678) # 2
+        .and_yield(0.0512345679) # 2
+        .and_yield(0.0512345680) # 2
+        .and_yield(0.2012345678) # 3
+        .and_yield(1.0000000000) # 4
       @video.versions.stub(:create).and_return(version)
       version.should_receive(:save).exactly(5).times
       @converter.perform(@video.id, '320x200')
