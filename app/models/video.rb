@@ -41,4 +41,13 @@ class Video
     "/videos/#{id.to_s}/#{resolution}/movie.mp4"
   end
 
+  def self.create_missing_versions
+    Video.unscoped.all.each do |video|
+      RESOLUTIONS.each do |resolution|
+        next if video.versions.unscoped.where(resolution: resolution).any?
+        VideoConverter.perform_async(video.id.to_s, resolution)
+      end
+    end
+  end
+
 end
