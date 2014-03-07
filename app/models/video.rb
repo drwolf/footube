@@ -17,7 +17,7 @@ class Video
 
   default_scope -> { where(processed: true) }
 
-  RESOLUTIONS = %w{320x200 640x480}
+  RESOLUTIONS = %w{320x200 640x480 1920x1080}
 
   # this is so ridiculous
   # (https://github.com/mongoid/mongoid/issues/2218)
