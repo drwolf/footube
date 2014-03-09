@@ -39,6 +39,18 @@ describe VideoConverter do
       expect(version.progress).to eq 100.0
     end
 
+    it 'does not create a new version if there is already one for the resolution' do
+      ffmpeg_mock = double()
+      ffmpeg_mock.stub(:screenshot)
+      ffmpeg_mock.stub(:transcode)
+      FFMPEG::Movie.stub(:new).and_return(ffmpeg_mock)
+      FileUtils.stub(:mkdir_p)
+      FactoryGirl.create(:video_version, video: @video, resolution: '320x200')
+      expect {
+        @converter.perform(@video.id, '320x200')
+      }.to raise_error
+    end
+
   end
 
 end

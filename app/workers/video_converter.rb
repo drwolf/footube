@@ -7,6 +7,9 @@ class VideoConverter
       video = Video.find(video_id)
       FileUtils.mkdir_p video.screenshot_path(resolution).dirname
       FileUtils.mkdir_p video.movie_path(resolution).dirname
+      if video.versions.where(resolution: resolution).any?
+        raise "version #{resolution} already exists for video #{video_id}"
+      end
       version = video.versions.create resolution: resolution
       movie = FFMPEG::Movie.new(video.file.path)
       movie.screenshot(video.screenshot_path(resolution), seek_time: 5, resolution: resolution)
