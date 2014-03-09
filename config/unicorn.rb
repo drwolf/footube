@@ -18,7 +18,7 @@ timeout 30
 
 # Listen on a Unix data socket
 #
-listen APP_CONFIG['general']['directory'], :backlog => 2048
+listen "#{APP_CONFIG['general']['directory']}/tmp/unicorn.sock", :backlog => 2048
 
 before_fork do |server, worker|
   ##
@@ -51,7 +51,7 @@ after_fork do |server, worker|
 
   begin
     uid, gid = Process.euid, Process.egid
-    user, group = 'meyer', 'meyer'
+    user, group = 'www', 'www-data'
     target_uid = Etc.getpwnam(user).uid
     target_gid = Etc.getgrnam(group).gid
     worker.tmp.chown(target_uid, target_gid)
