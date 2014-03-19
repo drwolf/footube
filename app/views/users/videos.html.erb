@@ -16,11 +16,11 @@
               <th>Progress</th>
             </tr>
             <% video.versions.unscoped.each do |version| %>
-            <tr>
-              <td><%= version.resolution %></td>
-              <td><%= l version.created_at, format: :short %></td>
-              <td><%= version.progress %> %</td>
-            </tr>
+              <%= content_tag :tr, data: { video_id: video.id.to_s, version_id: version.id.to_s }, id: "video-version-#{version.id}", class: (version.processed ? "version-processed" : "version-processing") do %>
+                <td><%= version.resolution %></td>
+                <td><%= l version.created_at, format: :short %></td>
+                <td><%= content_tag :span, version.progress, class: 'percent' %> %</td>
+              <% end %>
             <% end %>
           </table>
         </div>
