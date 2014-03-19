@@ -15,6 +15,7 @@ Footube::Application.routes.draw do
   resources :videos do
     get 'page/:page', action: :index, on: :collection
     get 'version/:version_id', action: :show, as: :version
+    get 'version/:version_id/progress', controller: :video_versions, action: :progress
   end
   resources :users, only: [:show]
 

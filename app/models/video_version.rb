@@ -14,7 +14,7 @@ class VideoVersion
   # this is so ridiculous
   # (https://github.com/mongoid/mongoid/issues/2218)
   after_initialize do |doc|
-    doc.processed = false unless doc.progress
+    doc.processed = false if doc.progress == 0
   end
 
   def screenshot_url
