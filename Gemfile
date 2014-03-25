@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.3'
 
+# temp limit sprockets version
+gem 'sprockets', '2.11.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
