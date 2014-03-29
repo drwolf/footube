@@ -11,6 +11,8 @@ class Video
   belongs_to :user
   embeds_many :versions, class_name: 'VideoVersion'
 
+  accepts_nested_attributes_for :versions
+
   mount_uploader :file, VideoUploader
 
   paginates_per 27
