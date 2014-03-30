@@ -5,6 +5,7 @@ SSHKit.config.command_map[:rake] = "bundle exec rake"
 
 set :application, 'footube'
 set :repo_url, APP_CONFIG['capistrano']['repo_url']
+set :branch, (ENV['BRANCH'] || 'master')
 
 set :user, APP_CONFIG['capistrano']['user']
 set :use_sudo, APP_CONFIG['capistrano']['use_sudo']
