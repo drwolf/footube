@@ -9,14 +9,6 @@ class VideoVersion
 
   embedded_in :video
 
-  default_scope -> { where(processed: true) }
-
-  # this is so ridiculous
-  # (https://github.com/mongoid/mongoid/issues/2218)
-  after_initialize do |doc|
-    doc.processed = false if doc.progress == 0
-  end
-
   def screenshot_url
     video.screenshot_url(resolution)
   end

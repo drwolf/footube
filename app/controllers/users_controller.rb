@@ -7,9 +7,9 @@ class UsersController < ApplicationController
 
   def videos
     if current_user?
-      @videos = @user.videos.unscoped.page(params[:page] || 1)
-    else
       @videos = @user.videos.page(params[:page] || 1)
+    else
+      @videos = @user.videos.published.page(params[:page] || 1)
     end
   end
 

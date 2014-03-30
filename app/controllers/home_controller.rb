@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @videos = Video.limit(6).page(params[:page] || 1)
+    @videos = Video.published.limit(6)
   end
 
 end
