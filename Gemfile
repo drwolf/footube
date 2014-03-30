@@ -74,3 +74,4 @@ end
 gem 'execjs'
 gem 'therubyracer'
 gem 'rails_autolink', '~> 1.1.5'
+gem 'rails_admin', '~> 0.6.1'

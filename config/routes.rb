@@ -7,6 +7,7 @@ Footube::Application.routes.draw do
   get "home/index"
 
   devise_for :users
+  devise_for :admins
 
   resources :users do
     get :videos
@@ -23,6 +24,10 @@ Footube::Application.routes.draw do
     get :videos
   end
 
-  mount Sidekiq::Web, at: "/sidekiq"
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  authenticate :admin do
+    mount Sidekiq::Web, at: "/sidekiq"
+  end
 
 end

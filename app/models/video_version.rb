@@ -17,4 +17,8 @@ class VideoVersion
     video.movie_url(resolution)
   end
 
+  def title
+    resolution
+  end
+
 end
