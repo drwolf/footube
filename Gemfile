@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.1'
 
 # temp limit sprockets version
-gem 'sprockets', '~> 2.12.0'
+gem 'sprockets', '~> 2.11.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0'
