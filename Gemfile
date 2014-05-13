@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.1'
 
-# temp limit sprockets version
-gem 'sprockets', '~> 2.11.0'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0'
 
@@ -68,7 +65,7 @@ end
 gem 'sinatra', require: false
 
 group :development do
-  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-rvm', '~> 0.1.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -78,3 +75,6 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'rails_autolink', '~> 1.1.5'
 gem 'rails_admin', '~> 0.6.1'
+
+# fix nokogiri
+gem 'nokogiri', '1.5.11'
