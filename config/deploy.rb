@@ -14,7 +14,7 @@ set :deploy_to, APP_CONFIG['capistrano']['deploy_to']
 set :linked_files, %w(config/mongoid.yml config/app_config.yml)
 set :linked_dirs, (fetch(:linked_dirs) || []) + %w{public/videos private/videos}
 
-set :rvm_ruby_version, 'ruby-2.1.1@footube'
+set :rvm_ruby_version, 'ruby-2.1.2@footube'
 
 namespace :deploy do
 

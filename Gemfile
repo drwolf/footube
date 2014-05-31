@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1'
+gem 'rails', '4.1.2.rc1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0'
@@ -42,7 +42,9 @@ gem 'unicorn'
 gem 'psych', '~> 2.0.5'
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'debugger', github: 'klausmeyer/debugger', branch: 'support_212'
+end
 
 gem 'slim', '~> 2.0.2'
 gem 'bootstrap-sass', '~> 3.1.0'
