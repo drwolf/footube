@@ -35,7 +35,7 @@ describe VideoConverter do
       version.should_receive(:save).exactly(5).times
       @converter.perform(@video.id, '320x200')
       expect(version).to be_instance_of VideoVersion
-      expect(version.processed).to be_true
+      expect(version.processed).to be true
       expect(version.progress).to eq 100.0
     end
 

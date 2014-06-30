@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe VideoVersionsController do
+describe VideoVersionsController, type: :controller do
 
   describe 'GET /:video_id/:version_id/progress.json' do
 

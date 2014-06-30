@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.2.rc1'
+gem 'rails', '4.1.2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0'
@@ -38,45 +38,43 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# https://www.ruby-lang.org/en/news/2014/03/29/heap-overflow-in-yaml-uri-escape-parsing-cve-2014-2525/
-gem 'psych', '~> 2.0.5'
-
 # Use debugger
 group :development, :test do
-  gem 'debugger', github: 'klausmeyer/debugger', branch: 'support_212'
+  gem 'byebug'
 end
 
-gem 'slim', '~> 2.0.2'
-gem 'bootstrap-sass', '~> 3.1.0'
-gem 'kaminari', '~> 0.15.1'
-gem 'kaminari-bootstrap', '~> 3.0.1'
-gem 'devise', '~> 3.2.2'
-gem 'mongoid', '~> 4.0.0.beta1'
+gem 'slim'
+gem 'bootstrap-sass'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem 'devise'
+gem 'mongoid'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-gem 'streamio-ffmpeg', '~> 1.0.0'
-gem 'sidekiq', '~> 2.17.4'
+gem 'streamio-ffmpeg'
+gem 'sidekiq'
 
 group :test do
-  gem 'rspec-rails', '~> 2.14.1'
-  gem 'database_cleaner', '~> 1.2.0'
-  gem 'cucumber-rails', '~> 1.4.0', require: false
-  gem 'factory_girl_rails', '~> 4.4.0'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'cucumber-rails', require: false
+  gem 'factory_girl_rails'
 end
 
 gem 'sinatra', require: false
 
 group :development do
-  gem 'capistrano', '~> 3.2.0'
-  gem 'capistrano-rvm', '~> 0.1.0'
+  gem 'capistrano'
+  gem 'capistrano-rvm'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+  gem 'capistrano-sidekiq' , github: 'seuros/capistrano-sidekiq'
 end
 
 gem 'execjs'
 gem 'therubyracer'
-gem 'rails_autolink', '~> 1.1.5'
-gem 'rails_admin', '~> 0.6.1'
+gem 'rails_autolink'
+gem 'rails_admin'
 
 # fix nokogiri
-gem 'nokogiri', '1.5.11'
+# gem 'nokogiri', '1.5.11'
